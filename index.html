@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sam's Store - Exam Ace</title>
+  <style>
+    body {
+      font-family: "Google Sans", Roboto, Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+      color: #202124;
+    }
+    header {
+      background: #1a73e8;
+      color: white;
+      padding: 16px 24px;
+      font-size: 24px;
+      font-weight: 600;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.2);
+      text-align: center;
+    }
+    .app-container {
+      max-width: 720px;
+      margin: 24px auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+      padding: 24px;
+    }
+    .app-header {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    .app-icon {
+      width: 140px;
+      height: 140px;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+      flex-shrink: 0;
+    }
+    .app-title-section {
+      flex-grow: 1;
+    }
+    .app-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+    .app-developer {
+      font-size: 14px;
+      color: #5f6368;
+      margin: 0 0 16px 0;
+    }
+    .download-btn {
+      background: #1a73e8;
+      color: white;
+      border: none;
+      padding: 16px 36px;
+      font-size: 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgb(26 115 232 / 0.5);
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .download-btn:hover {
+      background: #155ab6;
+    }
+    .app-description {
+      margin-top: 28px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #3c4043;
+    }
+    .screenshots {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+    }
+    .screenshots img {
+      width: 140px;
+      height: 280px;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px rgb(0 0 0 / 0.15);
+      object-fit: cover;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+    /* Scrollbar styling */
+    .screenshots::-webkit-scrollbar {
+      height: 8px;
+    }
+    .screenshots::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 8px;
+    }
+    .screenshots::-webkit-scrollbar-thumb {
+      background: #c1c1c1;
+      border-radius: 8px;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.8);
+    }
+    .modal:target {
+      display: flex;
+    }
+    .modal-close {
+      position: fixed;
+      top: 20px; right: 30px;
+      font-size: 36px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 1001;
+    }
+
+    @media (max-width: 480px) {
+      .app-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .app-title-section {
+        margin-top: 16px;
+      }
+      .screenshots img {
+        width: 110px;
+        height: 220px;
+      }
+      .app-icon {
+        width: 110px;
+        height: 110px;
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Sam's Store
+  </header>
+
+  <main class="app-container">
+    <div class="app-header">
+      <img src="icon.png" alt="Exam Ace Icon" class="app-icon" />
+      <div class="app-title-section">
+        <h1 class="app-title">Exam Ace</h1>
+        <p class="app-developer">by Sam's Store</p>
+        <a href="https://kodular.app/PJE-VRG" target="_blank" rel="noopener noreferrer" class="download-btn">Download</a>
+      </div>
+    </div>
+
+    <p class="app-description">
+      Exam Ace is your ultimate companion for competitive exam preparation.  
+      Get syllabus updates, practice questions, and exam tips all in one app.  
+      Designed for ease of use with a clean interface, Exam Ace makes studying efficient and fun.  
+      Download now and take a step closer to your dream career!
+    </p>
+
+    <div class="screenshots" aria-label="App screenshots">
+      <a href="#modal-a"><img src="a.jpg" alt="Screenshot 1" /></a>
+      <a href="#modal-b"><img src="b.jpg" alt="Screenshot 2" /></a>
+      <a href="#modal-c"><img src="c.jpg" alt="Screenshot 3" /></a>
+      <a href="#modal-d"><img src="d.jpg" alt="Screenshot 4" /></a>
+    </div>
+  </main>
+
+  <!-- Modals for screenshots -->
+  <div id="modal-a" class="modal">
+    <a href="#" class="modal-close" title="Close">&times;</a>
+    <img src="a.jpg" alt="Screenshot 1 Large" />
+  </div>
+  <div id="modal-b" class="modal">
+    <a href="#" class="modal-close" title="Close">&times;</a>
+    <img src="b.jpg" alt="Screenshot 2 Large" />
+  </div>
+  <div id="modal-c" class="modal">
+    <a href="#" class="modal-close" title="Close">&times;</a>
+    <img src="c.jpg" alt="Screenshot 3 Large" />
+  </div>
+  <div id="modal-d" class="modal">
+    <a href="#" class="modal-close" title="Close">&times;</a>
+    <img src="d.jpg" alt="Screenshot 4 Large" />
+  </div>
+<center>
+  <footer>
+    &copy; 2025 Sam's Store. All rights reserved.
+  </footer>
+  </center>
+</body>
+</html>
